@@ -1,4 +1,5 @@
 import React from "react";
+import TableNames from "./TableNames"
 
 function RecipeList({data, destroy}) {
 
@@ -19,14 +20,7 @@ function RecipeList({data, destroy}) {
     <div className="recipe-list">
       <table>
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Cuisine</th>
-            <th>Photo</th>
-            <th>Ingredients</th>
-            <th>Preparation</th>
-            <th>Actions</th>
-          </tr>
+          <TableNames />
         </thead>
         <tbody>
           {display}

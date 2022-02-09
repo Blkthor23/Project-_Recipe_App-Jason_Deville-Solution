@@ -18,8 +18,11 @@ function RecipeCreate({createRecipe}) {
   
   const handleSubmit = (event) => {
     event.preventDefault()
+    const item = event.target.value
+    if(item.length > 0 && item.trim()) {
     createRecipe(form)
     setForm({...initRecipe})
+    }
   }
   
   return (
@@ -27,11 +30,11 @@ function RecipeCreate({createRecipe}) {
       <table>
         <tbody>
           <tr>
-            <td><input type="text" name="name" placeholder="Name" onChange={handleChange}></input ></td>
-            <td><input type="text" name="cuisine" placeholder="cuisine" onChange={handleChange}></input></td>
+            <td><input type="text" name="name" placeholder="Name" required={true} onChange={handleChange}></input ></td>
+            <td><input type="text" name="cuisine" placeholder="cuisine" onChange={handleChange} required={true}></input></td>
             <td><input type="url" name="photo" placeholder="URL" onChange={handleChange}></input></td>
-            <td><textarea name="ingredients" placeholder="Ingredient" onChange={handleChange}></textarea></td>
-            <td><textarea name="preparation" placeholder="Preparation" onChange={handleChange}></textarea></td>
+            <td><textarea name="ingredients" placeholder="Ingredient" onChange={handleChange} required={true}></textarea></td>
+            <td><textarea name="preparation" placeholder="Preparation" onChange={handleChange} required={true}></textarea></td>
             <td>
               <button type="submit">Create</button>
             </td>
